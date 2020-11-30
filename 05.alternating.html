@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="draw()">
+	<canvas id="sketch" width="300" height="300">
+
+
+	</canvas>
+
+	<script>
+		function draw() {
+		 	var sketch = document.getElementById('sketch');
+			var context = sketch.getContext("2d");
+			
+			var userstring = prompt("So, like, how many pairs do you want?");
+			var usernum = parseInt(userstring, 10)
+			var thismany = usernum * 2 - 1;
+			
+			for (i = 0; i <= thismany; i++) {
+				if (i % 2 == 0) {
+					context.fillStyle = "#ff0000";
+					context.fillRect((i * 25), 20, 20, 20);
+				} else {
+					context.fillStyle = "#0000ff";
+					
+					
+					context.beginPath();
+					context.arc((i * 25 + 10), 30, 10, 0, 2 * Math.PI, true);
+					context.closePath();
+					context.fill();
+				// CIRCLE: https://entertainmenttechnology.github.io/Wilson-MTEC1003/labs/12/canvas.html#13.0
+					// context.beginPath();
+					// context.arc(x, y, radius, start angle, end angle, clockwise);
+					// context.closePath();
+					// context.fill();
+				}
+			}
+		
+			
+
+			
+		}
+	
+		
+		
+		
+
+	</script>
+</body>
+</html>

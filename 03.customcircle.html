@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="draw()">
+	<canvas id="sketch" width="300" height="300">
+
+
+	</canvas>
+
+	<script>
+		function draw() {
+		 	var sketch = document.getElementById('sketch');
+			var context = sketch.getContext("2d");
+			// radius input
+			var radiusstring = prompt("Enter a radius");
+			var radiusint = parseInt(radiusstring, 10);
+			
+			//use a while loop to endure the user enters an acceptable radius value!
+			while (radiusstring > 150){
+				var radiusstring = prompt("Radius must be <= 150! Try again... Enter a radius");
+				var radiusint = parseInt(radiusstring, 10);
+			}
+			
+			var color = prompt("Enter a color (red, green, or blue...)")
+			 //Use a While Loop to ensure the user enters an acceptable color value!
+			 while (color !== "red" && color !== "green" && color !== "blue"){
+			 	var color = prompt("I said: Enter a color (red, green, or blue...)")
+			 }
+			 
+			//define and fill hex code based on userinput
+			if (color === "red") {
+				context.fillStyle = "#ff0000";
+			} else if (color === "green") {
+				context.fillStyle = "#00ff00";
+			} else if (color === "blue"){
+				context.fillStyle = "#0000ff";
+			}
+			
+			
+			
+			// now, using user input, draw the circle
+			context.beginPath();
+			context.arc(150, 150, radiusint, 0, 2 * Math.PI, true);
+			context.closePath();
+			context.fill();
+			// CIRCLE: https://entertainmenttechnology.github.io/Wilson-MTEC1003/labs/12/canvas.html#13.0
+				// context.beginPath();
+				// context.arc(x, y, radius, start angle, end angle, clockwise);
+				// context.closePath();
+				// context.fill();
+		}
+	
+		
+		
+		
+
+	</script>
+</body>
+</html>
