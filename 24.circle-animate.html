@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		#sketch {
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body onload="main()">
+	<canvas id="sketch" width="480" height="720">
+
+
+	</canvas>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', main);
+		
+		var sketch;
+		var context;
+		var circle;
+		var dx = 2;
+		var fps = 10; //variable fps
+		var animation; //variable called animation
+		
+		function main(){ //function called main that will be called on
+			sketch = document.getElementById('sketch');
+			context = sketch.getContext("2d");
+			circle = {'x':25, 'y':sketch.offsetHeight / 2, 'r':25};
+			
+			animation = setInterval(animate, fps);
+		}
+		
+		function animate(){ //function called animate
+			context.clearRect(0,0,sketch.offsetWidth, sketch.offsetHeight);
+			context.fillStyle = '#000000';
+			draw_circle(circle.x, circle.y, circle.r);
+			circle.x = circle.x + dx;
+ 
+		
+		}
+		
+		function draw_circle(x, y, r){ //function to draw circle
+			context.beginPath();
+			context.arc(x, y, r, 0, 2 * Math.PI, true);
+			context.closePath();
+			context.fill();
+	}
+		
+		
+
+	</script>
+</body>
+</html>

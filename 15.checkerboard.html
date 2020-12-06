@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+
+	</style>
+	</style>
+</head>
+<body onload="draw()">
+	<canvas id="sketch" width="300" height="300">
+
+
+	</canvas>
+
+	<script>
+		function draw() {
+			var sketch = document.getElementById('sketch');
+			var context = sketch.getContext("2d");
+			
+			var row;
+			var col;
+			var x;
+			var y;
+			
+			for (row = 0; row < 8; row++) {
+			
+				for(col = 0; col < 8; col++) {
+					x = col * 20;
+					y = row * 20;
+					if (row % 2 == col % 2){
+						context.fillStyle = "#ffffff";
+					
+					} else{
+						context.fillStyle = "#000000";
+					
+					}
+					context.fillRect(x, y, 20, 20);
+				}
+			}
+
+		}
+		
+
+	</script>
+</body>
+</html>

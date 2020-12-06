@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="draw()">
+	<canvas id="sketch" width="300" height="300">
+
+
+	</canvas>
+
+	<script>
+		function draw() {
+		 	var sketch = document.getElementById('sketch');
+			var context = sketch.getContext("2d");
+			
+			
+			for (i = 0; i <= 4; i++) {
+				context.fillStyle = "#add8e6";
+				draw_circle(context, 20, (i * 22 + 10), 10); 
+		
+			}
+		
+			
+
+			
+		}
+	
+		function draw_circle(context, x, y, r){
+		
+			context.beginPath();
+			context.arc(x, y, r, 0, 2 * Math.PI, true);
+			context.closePath();
+			context.fill();
+		}
+		
+		
+
+	</script>
+</body>
+</html>
